@@ -1,4 +1,15 @@
+import { useSession, signIn } from 'next-auth/react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 export default function Casino() {
+    const router = useRouter();
+    const { data: session } = useSession();
+
+    useEffect(() => {
+        console.log('session', session);
+    }, [])
+
     return (
         <div class="casino">
             <div class="ui grid centered">

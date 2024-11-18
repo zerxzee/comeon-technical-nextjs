@@ -1,14 +1,17 @@
 // Global wrapper
 import '../styles/globals.css';
+import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     return (
-        <Component {...pageProps}>
-            <html class="h-full bg-white">
-                <body class="h-full">
-                </body>
-            </html>
-        </Component>
+        <SessionProvider session={session}>
+            <Component {...pageProps}>
+                <html className="h-full bg-white">
+                    <body className="h-full">
+                    </body>
+                </html>
+            </Component>
+        </SessionProvider>
     );
 }
 
