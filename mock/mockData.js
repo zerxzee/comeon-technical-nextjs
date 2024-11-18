@@ -88,5 +88,10 @@ export const users = [
     "avatar": "images/avatar/stoffe.jpg",
     "event": "Your are a rock star",
     "password": "rock"
+  },
+  {
+    "id": 3,
+    "name": "123",
+    "password": "123"
   }
 ];

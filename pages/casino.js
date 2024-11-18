@@ -4,11 +4,15 @@ import { useRouter } from 'next/router';
 
 export default function Casino() {
     const router = useRouter();
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
 
-    useEffect(() => {
-        console.log('session', session);
-    }, [])
+    if (status === 'loading') {
+        return <div>Loading...</div>;
+    }
+
+    if (!session) {
+        return <div>You need to be logged in to view this page.</div>;
+    }
 
     return (
         <div class="casino">
