@@ -91,12 +91,13 @@ export const users = [
     "id": 2,
     "name": "Stoffe Rocker",
     "avatar": "images/avatar/stoffe.jpg",
-    "event": "Your are a rock star",
+    "event": "You are a rock star",
     "password": "rock"
   },
   {
     "id": 3,
     "name": "123",
+    "event": "Still on the verge of winning.",
     "password": "123"
   }
 ];
