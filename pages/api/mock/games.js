@@ -1,5 +1,13 @@
-import { games } from '../../../mock/mockData.json';
+const { games } = require('../../../mock/mockData');
 
-export default function handler(req, res) {
+const gamesRouter = express.Router();
+
+gamesRouter.get('/', (req, res) => {
     res.status(200).json(games);
-}
+});
+
+gamesRouter.all('/', (req, res) => {
+    res.status(405).json({ message: 'Method Not Allowed' });
+});
+
+module.exports = gamesRouter;

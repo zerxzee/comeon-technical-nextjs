@@ -1,19 +1,24 @@
-import { users } from '../../../mock/mockData.json';
+const express = require('express');
+const { users } = require('../../../mock/mockData');
 
-export default function handler(req, res) {
-    if (req.method === 'POST') {
-        const { username, password } = req.body;
+const logoutRouter = express.Router();
 
-        const user = users.find(
-            (user) => user.name.toLowerCase() === username.toLowerCase()
-        );
+logoutRouter.post('/', (req, res) => {
+    const { username } = req.body;
 
-        if (user) {
-            res.status(200).json({ message: 'Logout successful!', user });
-        } else {
-            res.status(400).json({ message: 'Username do not match!' });
-        }
+    const user = users.find(
+        (user) => user.name.toLowerCase() === username.toLowerCase()
+    );
+
+    if (user) {
+        res.status(200).json({ message: 'Logout successful!', user });
     } else {
-        res.status(405).json({ message: 'Method Not Allowed' });
+        res.status(400).json({ message: 'Username do not match!' });
     }
-}
+});
+
+logoutRouter.all('/', (req, res) => {
+    res.status(405).json({ message: 'Method Not Allowed' });
+});
+
+module.exports = logoutRouter;

@@ -1,12 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const { users } = require('../../../mock/mockData');
 
-const app = express();
+const loginRouter = express.Router();
 
-app.use(bodyParser.json());
-
-app.post('/api/login', (req, res) => {
+loginRouter.post('/', (req, res) => {
     const { username, password } = req.body;
 
     const user = users.find(
@@ -20,11 +17,8 @@ app.post('/api/login', (req, res) => {
     }
 });
 
-app.all('/api/login', (req, res) => {
+loginRouter.all('/', (req, res) => {
     res.status(405).json({ message: 'Method Not Allowed' });
 });
 
-const PORT = 3001;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+module.exports = loginRouter;

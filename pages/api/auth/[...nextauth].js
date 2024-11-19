@@ -11,7 +11,6 @@ export default NextAuth({
             },
             async authorize(credentials) {
                 try {
-                    console.log('Sending request to /api/login...');
                     const response = await fetch('http://localhost:3001/api/login', {
                         method: 'POST',
                         headers: {
