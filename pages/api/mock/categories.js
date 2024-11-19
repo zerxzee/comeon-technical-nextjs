@@ -1,3 +1,4 @@
+const express = require('express');
 const { categories } = require('../../../mock/mockData');
 
 const categoriesRouter = express.Router();

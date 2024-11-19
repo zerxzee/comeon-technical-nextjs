@@ -1,9 +1,12 @@
-import { useState } from "react";
-import { signOut } from 'next-auth/react';
+import { useEffect, useState } from "react";
+import { signOut, useSession } from 'next-auth/react';
 import Modal from "./Modal";
 
 export default function Header() {
+    const { data: session, status } = useSession();
+
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [user, setUser] = useState(null);
 
     const handleOpenModal = () => setIsModalVisible(true);
     const handleCloseModal = () => setIsModalVisible(false);
@@ -19,20 +22,31 @@ export default function Header() {
         });
     };
 
+    useEffect(() => {
+        if (session) {
+            setUser(session.user)
+        }
+    }, []);
+
     return (
         <header className="bg-neutral-300">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
                 {/* <!-- player item template --> */}
-                <div class="player item">
-                    <img class="ui avatar image" src="" alt="avatar" />
+                {user ? (
+                    <div className="flex">
+                        <img alt="avatar" className="w-12 h-12 rounded-full object-cover"
+                            src={user.avatar ?? "/images/avatar/default-avatar.png"} />
 
-                    <div class="content">
-                        <div class="header">
-                            <b class="name"></b>
+                        <div className="ml-2">
+                            <div className="header">
+                                <b className="name">{user.name}</b>
+                            </div>
+                            <p className="text-xs">{user.event}</p>
                         </div>
-                        <div class="description event"></div>
                     </div>
-                </div>
+                ) : (
+                    <p>No user data available</p>
+                )}
                 {/* <!-- end player item template --> */}
                 <div className="flex">
                     <a href="#" className="-m-1.5 p-1.5">

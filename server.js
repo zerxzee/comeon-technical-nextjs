@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 
 const loginRouter = require('./pages/api/mock/login');
 const logoutRouter = require('./pages/api/mock/logout');
-const gamesRouter = require('./pages/api/mock/logout');
-const categoriesRouter = require('./pages/api/mock/logout');
+const gamesRouter = require('./pages/api/mock/games');
+const categoriesRouter = require('./pages/api/mock/categories');
 
 const app = express();
 

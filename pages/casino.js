@@ -1,8 +1,23 @@
-import { useSession, signIn } from 'next-auth/react';
-import { useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import GameCard from '../components/GameCard';
+import TabGroup from '../components/TabGroup';
 
-export default function Casino() {
+export async function getStaticProps() {
+    const gamesResponse = await fetch('http://localhost:3001/api/games', { method: 'get' });
+    const games = await gamesResponse.json();
+    const categoriesResponse = await fetch('http://localhost:3001/api/categories', { method: 'get' });
+    const categories = await categoriesResponse.json();
+
+    return {
+        props: {
+            games,
+            categories
+        },
+    };
+}
+
+export default function Casino({ games, categories }) {
     const router = useRouter();
     const { data: session, status } = useSession();
 
@@ -15,55 +30,14 @@ export default function Casino() {
     }
 
     return (
-        <div class="casino">
-            <div class="ui grid centered">
-                <div class="four wide column">
-                    <div class="search ui small icon input ">
-                        <input type="text" placeholder="Search Game" />
-                        <i class="search icon"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="ui grid">
-                <div class="twelve wide column">
-                    <h3 class="ui dividing header">Games</h3>
-
-                    <div class="ui relaxed divided game items links">
-                        {/* <!-- game item template --> */}
-                        <div class="game item">
-                            <div class="ui small image">
-                                <img src="" alt="game-icon" />
-                            </div>
-                            <div class="content">
-                                <div class="header">
-                                    <b class="name"></b>
-                                </div>
-                                <div class="description"></div>
-                                <div class="extra">
-                                    <div class="play ui right floated secondary button inverted">
-                                        Play
-                                        <i class="right chevron icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {/* <!-- end game item template --> */}
-                    </div>
-                </div>
-                <div class="four wide column">
-                    <h3 class="ui dividing header">Categories</h3>
-
-                    <div class="ui selection animated list category items">
-                        {/* <!-- category item template --> */}
-                        <div class="category item">
-                            <div class="content">
-                                <div class="header"></div>
-                            </div>
-                        </div>
-                        {/* <!-- end category item template --> */}
-                    </div>
-                </div>
+        <div className="p-12">
+            <TabGroup items={categories} tabGroupName="categories" />
+            <div className="grid gap-y-8">
+                {games.map((game) => (
+                    <GameCard game={game} />
+                ))}
             </div>
         </div>
+
     );
 }
