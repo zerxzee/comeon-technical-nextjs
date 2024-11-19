@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { users } from '../../../mock/mockData';
 
 export default NextAuth({
     providers: [
@@ -11,20 +10,36 @@ export default NextAuth({
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials) {
-                const user = users.find(
-                    (user) => user.name === credentials.username && user.password === credentials.password
-                );
+                try {
+                    console.log('Sending request to /api/login...');
+                    const response = await fetch('http://localhost:3001/api/login', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            username: credentials.username,
+                            password: credentials.password
+                        })
+                    });
 
-                if (user) {
+                    if (!response.ok) {
+                        throw new Error('Invalid credentials. Please try again.');
+                    }
+
+                    const user = await response.json();
+
                     return {
                         id: user.id,
                         name: user.name,
                         avatar: user.avatar,
                         event: user.event,
                     };
+                } catch (error) {
+                    console.error('Authentication error:', error);
+                    throw new Error('Invalid credentials. Please try again.');
                 }
-
-                throw new Error('Invalid credentials. Please try again.');
             }
         })
     ],
