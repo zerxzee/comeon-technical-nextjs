@@ -11,31 +11,12 @@ export default function Casino() {
     }
 
     if (!session) {
-        return <div>You need to be logged in to view this page.</div>;
+        router.push('/login');
     }
 
     return (
         <div class="casino">
             <div class="ui grid centered">
-                <div class="twelve wide column">
-                    <div class="ui list">
-                        {/* <!-- player item template --> */}
-                        <div class="player item">
-                            <img class="ui avatar image" src="" alt="avatar" />
-
-                            <div class="content">
-                                <div class="header">
-                                    <b class="name"></b>
-                                </div>
-                                <div class="description event"></div>
-                            </div>
-                        </div>
-                        {/* <!-- end player item template --> */}
-                    </div>
-                    <div class="logout ui left floated secondary button inverted">
-                        <i class="left chevron icon"></i>Log Out
-                    </div>
-                </div>
                 <div class="four wide column">
                     <div class="search ui small icon input ">
                         <input type="text" placeholder="Search Game" />
