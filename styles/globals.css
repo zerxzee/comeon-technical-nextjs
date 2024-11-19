@@ -1,21 +1,6 @@
-/* body {
-    background-color: #999;
-} */
-
-/* .main.container {
-    background-color: #FFFFFF;
-    margin: 0 auto;
-    padding: 2em 2em 7em;
-    max-width: 990px;
+body {
+    font-family: 'Inter', sans-serif;
 }
-
-.field {
-    margin: 10px;
-}
-
-.search {
-    float: right;
-} */
 
 @tailwind base;
 @tailwind components;

@@ -33,11 +33,10 @@ export default function Casino({ games, categories }) {
         <div className="p-12">
             <TabGroup items={categories} tabGroupName="categories" />
             <div className="grid gap-y-8">
-                {games.map((game) => (
-                    <GameCard game={game} />
+                {games.map((game, index) => (
+                    <GameCard key={index} game={game} />
                 ))}
             </div>
         </div>
-
     );
 }

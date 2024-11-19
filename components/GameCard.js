@@ -11,12 +11,12 @@ export default function GameCard({ game }) {
                 />
 
                 <div className="content-center text-center lg:text-left">
-                    <p className="text-2xl font-medium text-gray-900 mb-8">{game.name}</p>
-                    <p className="mt-0.5 text-gray-700 text-left">{game.description}</p>
+                    <p className="text-2xl font-semibold text-gray-900 mb-8">{game.name}</p>
+                    <p className="mt-0.5 text-gray-700 text-left leading-relaxed">{game.description}</p>
                 </div>
             </div>
 
-            <div className="flex justify-end mt-4 sm:mt-0">
+            <div className="flex justify-end mt-4">
                 <PlayButton />
             </div>
         </div>
