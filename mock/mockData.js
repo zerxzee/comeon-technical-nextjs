@@ -78,6 +78,7 @@ export const users = [
     "name": "Rebecka Awesome",
     "avatar": "images/avatar/rebecka.jpg",
     "event": "Last seen gambling on Starburst.",
+    "username": "rebecka",
     "password": "secret"
   },
   {
@@ -85,6 +86,7 @@ export const users = [
     "name": "Eric Beard",
     "avatar": "images/avatar/eric.jpg",
     "event": "I saw you won 500 SEK last time!",
+    "username": "eric",
     "password": "dad"
   },
   {
@@ -92,12 +94,14 @@ export const users = [
     "name": "Stoffe Rocker",
     "avatar": "images/avatar/stoffe.jpg",
     "event": "You are a rock star",
+    "username": "stoffe",
     "password": "rock"
   },
   {
     "id": 3,
     "name": "123",
     "event": "Still on the verge of winning.",
+    "username": "123",
     "password": "123"
   }
 ];

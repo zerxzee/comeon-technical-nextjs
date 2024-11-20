@@ -7,7 +7,7 @@ logoutRouter.post('/', (req, res) => {
     const { username } = req.body;
 
     const user = users.find(
-        (user) => user.name.toLowerCase() === username.toLowerCase()
+        (user) => user.username.toLowerCase() === username.toLowerCase()
     );
 
     if (user) {

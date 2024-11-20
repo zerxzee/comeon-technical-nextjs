@@ -7,7 +7,7 @@ loginRouter.post('/', (req, res) => {
     const { username, password } = req.body;
 
     const user = users.find(
-        (user) => user.name.toLowerCase() === username.toLowerCase() && user.password === password
+        (user) => user.username.toLowerCase() === username.toLowerCase() && user.password === password
     );
 
     if (user) {

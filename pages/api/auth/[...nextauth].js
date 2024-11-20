@@ -34,6 +34,7 @@ export default NextAuth({
                         name: user.name,
                         avatar: user.avatar,
                         event: user.event,
+                        username: user.username,
                     };
                 } catch (error) {
                     console.error('Authentication error:', error);
@@ -42,6 +43,24 @@ export default NextAuth({
             }
         })
     ],
+    events: {
+        async signOut({ token }) {
+            try {
+                await fetch('http://localhost:3001/api/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: token?.username || 'unknown_user'
+                    })
+                });
+            } catch (error) {
+                console.error('Error during logout:', error);
+            }
+        }
+    },
     session: {
         strategy: 'jwt',
         maxAge: 60 * 60,
@@ -54,6 +73,7 @@ export default NextAuth({
                 token.name = user.name;
                 token.avatar = user.avatar;
                 token.event = user.event;
+                token.username = user.username;
             }
             return token;
         },
@@ -62,6 +82,7 @@ export default NextAuth({
             session.user.name = token.name;
             session.user.avatar = token.avatar;
             session.user.event = token.event;
+            session.user.username = token.username;
             return session;
         }
     }
