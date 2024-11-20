@@ -4,6 +4,7 @@ import { useState } from "react";
 import GameCard from "../components/GameCard";
 import TabGroup from "../components/TabGroup";
 import SearchBar from "../components/SearchBar";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export async function getStaticProps() {
     const gamesResponse = await fetch('http://localhost:3001/api/games', { method: 'get' });
@@ -27,7 +28,7 @@ export default function Casino({ games, categories }) {
     const [selectedCategory, setSelectedCategory] = useState(0);
 
     if (status === 'loading') {
-        return <div>Loading...</div>;
+        return <LoadingSpinner />;
     }
 
     if (!session) {
