@@ -17,7 +17,7 @@ export default function GameCard({ game }) {
             </div>
 
             <div className="flex justify-end mt-4">
-                <PlayButton />
+                <PlayButton gameCode={game.code} />
             </div>
         </div>
     );

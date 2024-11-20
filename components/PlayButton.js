@@ -1,6 +1,16 @@
+import { useRouter } from 'next/router';
+
 export default function PlayButton({ gameCode }) {
+    const router = useRouter();
+
+    const playGame = () => {
+        if (gameCode) {
+            router.push(`/ingame?gamecode=${gameCode}`);
+        }
+    };
+
     return (
-        <a className="group relative inline-block focus:outline-none focus:ring" href="#">
+        <a className="group relative inline-block focus:outline-none focus:ring" role="button" onClick={playGame}>
             <span
                 className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-red-200 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"
             ></span>

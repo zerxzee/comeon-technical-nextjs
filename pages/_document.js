@@ -15,6 +15,7 @@ class MyDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
+                    <script src="/lib/comeon.game-1.1.min.js"></script>
                 </body>
             </Html>
         );
