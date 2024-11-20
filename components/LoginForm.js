@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/react';
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
     const router = useRouter();
@@ -47,8 +47,7 @@ export default function LoginForm() {
                         <img
                             alt="ComeOn Group Company Logo"
                             src="/images/logo.svg"
-                            className="h-8 w-auto"
-                        />
+                            className="h-8 w-auto" />
                     </div>
                 </div>
                 <h2 className="mt-4 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
@@ -80,7 +79,7 @@ export default function LoginForm() {
                     )}
 
                     <div>
-                        <button type="submit" className="flex w-full justify-center rounded-md bg-[#ccf7cc] px-3 py-1.5 text-sm/6 font-semibold text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ccf7cc]">Sign in</button>
+                        <button type="submit" className="flex w-full justify-center rounded-md bg-comeon-default px-3 py-1.5 text-sm/6 font-semibold text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-comeon-default">Sign in</button>
                     </div>
                 </form>
             </div>

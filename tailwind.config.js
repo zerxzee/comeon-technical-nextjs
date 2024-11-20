@@ -5,7 +5,11 @@ module.exports = {
     // Add other directories if needed
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'comeon-default': '#ccf7cc',
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

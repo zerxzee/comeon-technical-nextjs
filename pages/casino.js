@@ -1,9 +1,9 @@
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import GameCard from '../components/GameCard';
-import TabGroup from '../components/TabGroup';
-import SearchBar from '../components/SearchBar';
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import GameCard from "../components/GameCard";
+import TabGroup from "../components/TabGroup";
+import SearchBar from "../components/SearchBar";
 
 export async function getStaticProps() {
     const gamesResponse = await fetch('http://localhost:3001/api/games', { method: 'get' });

@@ -22,9 +22,7 @@ export default function TabGroup({
                 <div className="border-b border-gray-200 mb-12">
                     <nav className="flex gap-4 justify-evenly" aria-label="Tabs">
                         {items.map((item) => (
-                            <a
-                                key={item.id}
-                                href="#"
+                            <a key={item.id}
                                 onClick={() => onTabChange(item.id)}
                                 className={`
                                     shrink-0 
@@ -32,9 +30,8 @@ export default function TabGroup({
                                     text-lg font-extrabold 
                                     tracking-widest 
                                     ${selectedTab === item.id
-                                        ? 'border-b-2 border-[#ccf7cc] text-black'
-                                        : 'border-b-2 border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}
-                                `}>
+                                        ? 'border-b-2 border-comeon-default text-black'
+                                        : 'border-b-2 border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}>
                                 {item.name}
                             </a>
                         ))}

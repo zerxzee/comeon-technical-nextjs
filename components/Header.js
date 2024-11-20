@@ -1,9 +1,11 @@
 import { useEffect, useState, useRef } from "react";
-import { signOut, useSession } from 'next-auth/react';
+import { signOut, useSession } from "next-auth/react";
 import Modal from "./Modal";
+import { useRouter } from "next/router";
 
 export default function Header() {
-    const { data: session, status } = useSession();
+    const router = useRouter();
+    const { data: session } = useSession();
 
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,6 +40,10 @@ export default function Header() {
         }
     };
 
+    const backToCasino = () => {
+        router.push('/casino');
+    };
+
     useEffect(() => {
         if (session) {
             setUser(session.user)
@@ -49,18 +55,16 @@ export default function Header() {
             <div className="mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-evenly">
                     <div className="flex-1 md:flex md:items-center md:gap-12">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <a className="-m-1.5 p-1.5" role="button" onClick={backToCasino}>
                             <div className="px-4 py-2 md:bg-[rgba(23,23,23,0.6)] rounded-3xl w-fit">
                                 <img
                                     alt="ComeOn Group Company Logo"
                                     src="/images/logo.svg"
-                                    className="h-8 w-auto hidden md:block"
-                                />
+                                    className="h-8 w-auto hidden md:block" />
                                 <img
                                     alt="ComeOn Group Company Logo"
                                     src="/favicon.ico"
-                                    className="h-8 w-auto md:hidden"
-                                />
+                                    className="h-8 w-auto md:hidden" />
                             </div>
                         </a>
                     </div>
