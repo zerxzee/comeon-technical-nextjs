@@ -10,8 +10,13 @@ export default function Header() {
     const [user, setUser] = useState(null);
     const menuRef = useRef(null);
 
-    const handleOpenModal = () => setIsModalVisible(true);
     const handleCloseModal = () => setIsModalVisible(false);
+
+    const handleOpenModal = () => {
+        setIsModalVisible(true);
+        setIsMenuOpen(false);
+    };
+
     const handleConfirm = () => {
         handleSignOut();
         handleCloseModal();
