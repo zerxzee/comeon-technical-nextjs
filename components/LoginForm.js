@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useSession, signIn } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 
 export default function LoginForm() {
     const router = useRouter();
-    const { data: session } = useSession();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -41,10 +40,18 @@ export default function LoginForm() {
     };
 
     return (
-        <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-300 w-3/4 drop-shadow-xl">
+        <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-white w-3/4 md:w-2/5 drop-shadow-xl">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <img className="mx-auto h-16 w-auto" src="/images/logo.svg" alt="ComeOn Group Company Logo" />
-                <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+                <div className="justify-center flex">
+                    <div className="px-4 py-2 bg-[rgba(23,23,23,0.6)] rounded-3xl w-fit">
+                        <img
+                            alt="ComeOn Group Company Logo"
+                            src="/images/logo.svg"
+                            className="h-8 w-auto"
+                        />
+                    </div>
+                </div>
+                <h2 className="mt-4 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -73,7 +80,7 @@ export default function LoginForm() {
                     )}
 
                     <div>
-                        <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                        <button type="submit" className="flex w-full justify-center rounded-md bg-[#ccf7cc] px-3 py-1.5 text-sm/6 font-semibold text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ccf7cc]">Sign in</button>
                     </div>
                 </form>
             </div>

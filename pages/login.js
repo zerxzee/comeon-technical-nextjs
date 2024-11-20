@@ -14,7 +14,7 @@ export default function Login() {
     }, [session, router]);
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center min-h-screen bg-gray-300">
             <LoginForm />
         </div>
     );
