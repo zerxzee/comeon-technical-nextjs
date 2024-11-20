@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+// INSTALL AND INCLUDE CORS IF SEARCHING/FILTERING GAMES FROM API
+// const cors = require('cors');
 
 const loginRouter = require('./pages/api/mock/login');
 const logoutRouter = require('./pages/api/mock/logout');
@@ -9,6 +11,7 @@ const categoriesRouter = require('./pages/api/mock/categories');
 const app = express();
 
 app.use(bodyParser.json());
+// app.use(cors());
 
 app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);
