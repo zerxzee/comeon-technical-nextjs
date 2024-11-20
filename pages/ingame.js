@@ -29,10 +29,10 @@ export default function InGame() {
     return (
         <div className="justify-center relative">
             <div className="ml-4 md:ml-8">
-                <button class="flex items-center text-black px-4 py-2 rounded-full hover:bg-[#ccf7cc] focus:outline-none focus:ring-2 focus:ring-[#ccf7cc] font-semibold mt-4 md:mt-8"
+                <button className="flex items-center text-black px-4 py-2 rounded-full hover:bg-[#ccf7cc] focus:outline-none focus:ring-2 focus:ring-[#ccf7cc] font-semibold mt-4 md:mt-8"
                     onClick={backToCasino}>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
                     </svg>
                     Back
                 </button>
