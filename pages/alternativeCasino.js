@@ -72,7 +72,7 @@ export default function AlternativeCasino({ initialGames, categories }) {
                         <GameCard key={index} game={game} />
                     ))
                 ) : (
-                    <p>No games found</p>
+                    <p className="font-semibold text-xl text-center">No games found. Try changing your filters to see other games. 🧐</p>
                 )}
             </div>
         </div>
