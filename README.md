@@ -36,6 +36,18 @@ The assignment is to use Javascript to tie together existing HTML and data to cr
 ✅ Load the selected game via the provided API.  
 ✅ Provide a way to go back to the Games list screen.  
 
+## Running the Project
+
+### Starting the server
+
+1. Make sure you are in the root folder (/comeon-group-technical-nextjs).
+2. Run `npm install` to install dependencies including Express.
+3. Run `node server.js` and make sure that the confirmation message: "Server is running on http://localhost:3001" is shown.
+
+### Running the app
+
+1. Once the mock server is running on port 3001, open another terminal and run `npm run dev` on the same folder.
+
 ---
 
 It is possible to login with four accounts:
